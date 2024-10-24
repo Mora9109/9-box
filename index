@@ -31,19 +31,28 @@
             margin-bottom: 20px;
             font-size: 2.5em;
         }
-        .question {
-            margin: 20px 0;
+        .input-group {
+            margin-bottom: 20px;
         }
         label {
             font-weight: bold;
             color: #34495e;
         }
-        select {
+        input[type="text"], input[type="date"] {
             width: 100%;
             padding: 10px;
-            margin-top: 10px;
+            margin-top: 5px;
             border: 1px solid #ddd;
             border-radius: 5px;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .options {
+            margin-top: 10px;
+        }
+        .options input {
+            margin-right: 10px;
         }
         .result {
             text-align: center;
@@ -91,98 +100,112 @@
     <div class="container">
         <h1>9-Box Evaluation Tool</h1>
         <div id="quiz">
+            <!-- Evaluation Details -->
+            <div class="input-group">
+                <label for="employeeName">Employee Name:</label>
+                <input type="text" id="employeeName" placeholder="Enter employee's name">
+            </div>
+            <div class="input-group">
+                <label for="evaluatorName">Evaluator Name:</label>
+                <input type="text" id="evaluatorName" placeholder="Enter your name">
+            </div>
+            <div class="input-group">
+                <label for="evaluationDate">Date of Evaluation:</label>
+                <input type="date" id="evaluationDate">
+            </div>
+
             <!-- Performance Questions -->
             <div class="question">
-                <label>1. How consistently does the employee meet or exceed expectations in their role?</label><br>
-                <select id="q1">
-                    <option value="3">Exceeds expectations regularly</option>
-                    <option value="2">Meets expectations consistently</option>
-                    <option value="1">Occasionally meets expectations</option>
-                    <option value="0">Rarely meets expectations</option>
-                </select>
+                <label>1. How consistently does the employee meet or exceed expectations in their role?</label>
+                <div class="options">
+                    <input type="radio" name="q1" value="3"> Exceeds expectations regularly<br>
+                    <input type="radio" name="q1" value="2"> Meets expectations consistently<br>
+                    <input type="radio" name="q1" value="1"> Occasionally meets expectations<br>
+                    <input type="radio" name="q1" value="0"> Rarely meets expectations
+                </div>
             </div>
             <div class="question">
-                <label>2. How well does the employee contribute to team goals and overall company objectives?</label><br>
-                <select id="q2">
-                    <option value="3">Drives the team’s success, often leading projects</option>
-                    <option value="2">Contributes positively to team and company goals</option>
-                    <option value="1">Contributes occasionally, but impact is limited</option>
-                    <option value="0">Rarely contributes to team or company success</option>
-                </select>
+                <label>2. How well does the employee contribute to team goals and overall company objectives?</label>
+                <div class="options">
+                    <input type="radio" name="q2" value="3"> Drives the team’s success, often leading projects<br>
+                    <input type="radio" name="q2" value="2"> Contributes positively to team and company goals<br>
+                    <input type="radio" name="q2" value="1"> Contributes occasionally, but impact is limited<br>
+                    <input type="radio" name="q2" value="0"> Rarely contributes to team or company success
+                </div>
             </div>
             <div class="question">
-                <label>3. How reliable is the employee in terms of work quality and deadlines?</label><br>
-                <select id="q3">
-                    <option value="3">Always delivers high-quality work on time</option>
-                    <option value="2">Mostly delivers good work and meets deadlines</option>
-                    <option value="1">Inconsistent in quality or timeliness</option>
-                    <option value="0">Frequently misses deadlines or produces poor-quality work</option>
-                </select>
+                <label>3. How reliable is the employee in terms of work quality and deadlines?</label>
+                <div class="options">
+                    <input type="radio" name="q3" value="3"> Always delivers high-quality work on time<br>
+                    <input type="radio" name="q3" value="2"> Mostly delivers good work and meets deadlines<br>
+                    <input type="radio" name="q3" value="1"> Inconsistent in quality or timeliness<br>
+                    <input type="radio" name="q3" value="0"> Frequently misses deadlines or produces poor-quality work
+                </div>
             </div>
             <div class="question">
-                <label>4. How well does the employee handle challenges or problem-solving in their role?</label><br>
-                <select id="q4">
-                    <option value="3">Consistently finds solutions and handles challenges independently</option>
-                    <option value="2">Generally handles challenges with some guidance</option>
-                    <option value="1">Needs support to handle challenges</option>
-                    <option value="0">Struggles with problem-solving and needs frequent help</option>
-                </select>
+                <label>4. How well does the employee handle challenges or problem-solving in their role?</label>
+                <div class="options">
+                    <input type="radio" name="q4" value="3"> Consistently finds solutions and handles challenges independently<br>
+                    <input type="radio" name="q4" value="2"> Generally handles challenges with some guidance<br>
+                    <input type="radio" name="q4" value="1"> Needs support to handle challenges<br>
+                    <input type="radio" name="q4" value="0"> Struggles with problem-solving and needs frequent help
+                </div>
             </div>
             <div class="question">
-                <label>5. How does the employee perform in terms of collaboration and communication with peers and supervisors?</label><br>
-                <select id="q5">
-                    <option value="3">Excellent communication and collaboration</option>
-                    <option value="2">Good, no major issues</option>
-                    <option value="1">Communication or collaboration could improve</option>
-                    <option value="0">Frequently has communication or collaboration issues</option>
-                </select>
+                <label>5. How does the employee perform in terms of collaboration and communication with peers and supervisors?</label>
+                <div class="options">
+                    <input type="radio" name="q5" value="3"> Excellent communication and collaboration<br>
+                    <input type="radio" name="q5" value="2"> Good, no major issues<br>
+                    <input type="radio" name="q5" value="1"> Communication or collaboration could improve<br>
+                    <input type="radio" name="q5" value="0"> Frequently has communication or collaboration issues
+                </div>
             </div>
 
             <!-- Potential Questions -->
             <div class="question">
-                <label>6. Does the employee show interest in taking on new challenges or expanding their role?</label><br>
-                <select id="q6">
-                    <option value="3">Eagerly seeks out new challenges and responsibilities</option>
-                    <option value="2">Open to new challenges when presented</option>
-                    <option value="1">Occasionally shows interest</option>
-                    <option value="0">Shows little or no interest in new challenges</option>
-                </select>
+                <label>6. Does the employee show interest in taking on new challenges or expanding their role?</label>
+                <div class="options">
+                    <input type="radio" name="q6" value="3"> Eagerly seeks out new challenges and responsibilities<br>
+                    <input type="radio" name="q6" value="2"> Open to new challenges when presented<br>
+                    <input type="radio" name="q6" value="1"> Occasionally shows interest<br>
+                    <input type="radio" name="q6" value="0"> Shows little or no interest in new challenges
+                </div>
             </div>
             <div class="question">
-                <label>7. Does the employee display leadership qualities, even if not in a formal leadership role?</label><br>
-                <select id="q7">
-                    <option value="3">Frequently demonstrates strong leadership qualities</option>
-                    <option value="2">Sometimes displays leadership qualities</option>
-                    <option value="1">Rarely shows leadership potential</option>
-                    <option value="0">Does not demonstrate leadership qualities</option>
-                </select>
+                <label>7. Does the employee display leadership qualities, even if not in a formal leadership role?</label>
+                <div class="options">
+                    <input type="radio" name="q7" value="3"> Frequently demonstrates strong leadership qualities<br>
+                    <input type="radio" name="q7" value="2"> Sometimes displays leadership qualities<br>
+                    <input type="radio" name="q7" value="1"> Rarely shows leadership potential<br>
+                    <input type="radio" name="q7" value="0"> Does not demonstrate leadership qualities
+                </div>
             </div>
             <div class="question">
-                <label>8. How adaptable is the employee to change, new technology, or processes?</label><br>
-                <select id="q8">
-                    <option value="3">Adapts quickly and embraces change</option>
-                    <option value="2">Adapts fairly well but takes some time</option>
-                    <option value="1">Struggles with change but eventually adapts</option>
-                    <option value="0">Resists change and prefers the status quo</option>
-                </select>
+                <label>8. How adaptable is the employee to change, new technology, or processes?</label>
+                <div class="options">
+                    <input type="radio" name="q8" value="3"> Adapts quickly and embraces change<br>
+                    <input type="radio" name="q8" value="2"> Adapts fairly well but takes some time<br>
+                    <input type="radio" name="q8" value="1"> Struggles with change but eventually adapts<br>
+                    <input type="radio" name="q8" value="0"> Resists change and prefers the status quo
+                </div>
             </div>
             <div class="question">
-                <label>9. How strong is the employee’s ability to learn new skills or acquire knowledge?</label><br>
-                <select id="q9">
-                    <option value="3">Learns quickly and applies new skills effectively</option>
-                    <option value="2">Learns at an average pace</option>
-                    <option value="1">Takes longer to learn but eventually does</option>
-                    <option value="0">Struggles to learn new skills or apply knowledge</option>
-                </select>
+                <label>9. How strong is the employee’s ability to learn new skills or acquire knowledge?</label>
+                <div class="options">
+                    <input type="radio" name="q9" value="3"> Learns quickly and applies new skills effectively<br>
+                    <input type="radio" name="q9" value="2"> Learns at an average pace<br>
+                    <input type="radio" name="q9" value="1"> Takes longer to learn but eventually does<br>
+                    <input type="radio" name="q9" value="0"> Struggles to learn new skills or apply knowledge
+                </div>
             </div>
             <div class="question">
-                <label>10. Does the employee exhibit ambition for growth within the company or career advancement?</label><br>
-                <select id="q10">
-                    <option value="3">Very ambitious, actively pursuing growth opportunities</option>
-                    <option value="2">Somewhat ambitious, open to growth opportunities</option>
-                    <option value="1">Shows occasional ambition but not consistently</option>
-                    <option value="0">Not interested in growth or advancement</option>
-                </select>
+                <label>10. Does the employee exhibit ambition for growth within the company or career advancement?</label>
+                <div class="options">
+                    <input type="radio" name="q10" value="3"> Very ambitious, actively pursuing growth opportunities<br>
+                    <input type="radio" name="q10" value="2"> Somewhat ambitious, open to growth opportunities<br>
+                    <input type="radio" name="q10" value="1"> Shows occasional ambition but not consistently<br>
+                    <input type="radio" name="q10" value="0"> Not interested in growth or advancement
+                </div>
             </div>
 
             <button onclick="evaluateEmployee()">Evaluate Employee</button>
@@ -202,12 +225,18 @@
 
             // Calculate Performance Score (Questions 1-5)
             for (let i = 1; i <= 5; i++) {
-                performanceScore += parseInt(document.getElementById('q' + i).value);
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selectedOption) {
+                    performanceScore += parseInt(selectedOption.value);
+                }
             }
 
             // Calculate Potential Score (Questions 6-10)
             for (let i = 6; i <= 10; i++) {
-                potentialScore += parseInt(document.getElementById('q' + i).value);
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selectedOption) {
+                    potentialScore += parseInt(selectedOption.value);
+                }
             }
 
             // Determine placement in the 9-box grid
@@ -227,17 +256,27 @@
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
+            const employeeName = document.getElementById('employeeName').value;
+            const evaluatorName = document.getElementById('evaluatorName').value;
+            const evaluationDate = document.getElementById('evaluationDate').value;
+
             let performanceScore = 0;
             let potentialScore = 0;
 
             // Calculate Performance Score (Questions 1-5)
             for (let i = 1; i <= 5; i++) {
-                performanceScore += parseInt(document.getElementById('q' + i).value);
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selectedOption) {
+                    performanceScore += parseInt(selectedOption.value);
+                }
             }
 
             // Calculate Potential Score (Questions 6-10)
             for (let i = 6; i <= 10; i++) {
-                potentialScore += parseInt(document.getElementById('q' + i).value);
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selectedOption) {
+                    potentialScore += parseInt(selectedOption.value);
+                }
             }
 
             let performanceCategory = performanceScore >= 13 ? 'High' : (performanceScore >= 8 ? 'Medium' : 'Low');
@@ -249,9 +288,12 @@
             doc.setFontSize(16);
             doc.text("9-Box Evaluation Report", 20, 20);
             doc.setFontSize(12);
-            doc.text(`Performance Score: ${performanceScore}`, 20, 40);
-            doc.text(`Potential Score: ${potentialScore}`, 20, 50);
-            doc.text(`Placement: ${placement}`, 20, 60);
+            doc.text(`Employee Name: ${employeeName}`, 20, 40);
+            doc.text(`Evaluator Name: ${evaluatorName}`, 20, 50);
+            doc.text(`Date of Evaluation: ${evaluationDate}`, 20, 60);
+            doc.text(`Performance Score: ${performanceScore}`, 20, 80);
+            doc.text(`Potential Score: ${potentialScore}`, 20, 90);
+            doc.text(`Placement: ${placement}`, 20, 100);
 
             // Save the PDF
             doc.save("9-Box-Evaluation-Report.pdf");
